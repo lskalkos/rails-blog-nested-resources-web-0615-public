@@ -19,13 +19,11 @@
 </ul>
 
 <p>Write a comment here:</p>
-<%= form_tag('/comments/post', method: :get) do %>
-    <%= hidden_field_tag 'comment[post_id]', @post.id %>
+<%= form_for([@post, @comment]) do |f| %>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
 
-    <%= label_tag 'Content' %>
-    <%= text_field_tag 'comment[content]' %>
-
-    <%= submit_tag 'Create Comment' %>
+    <%= f.submit %>
 <% end %>
 
 <br/>
